@@ -22,5 +22,5 @@ class Client:
     def deposit(self, cash):
         self.balance += cash                    # deposita uma quantia
 
-    def cashout(self, cash):
+    def cash_out(self, cash):
         self.balance -= cash                    # sacar uma quantia
