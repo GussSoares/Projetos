@@ -1,4 +1,5 @@
 import cliente, empresa
+
 lista=[]
 
 def cadastrar():
@@ -15,7 +16,7 @@ def listar_clientes(lista):
         print(i.nome+", "+i.telefone)
 
 
-def remover_cliente(lista, nome)
+def remover_cliente(lista, nome):
     for i in lista:
         if i.nome == nome:
             lista.remove(i)
