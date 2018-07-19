@@ -2,7 +2,6 @@ import cliente, empresa
 lista=[]
 
 def cadastrar():
-
     c = cliente.Cliente(None, None)
     c.nome = input("Digite seu nome: ")
     c.telefone = input("Digite seu telefone: ")
@@ -16,5 +15,15 @@ def listar_clientes(lista):
         print(i.nome+", "+i.telefone)
 
 
-cadastrar()
-listar_clientes(lista)
+def remover_cliente(lista, nome)
+    for i in lista:
+        if i.nome == nome:
+            lista.remove(i)
+    print(i.nome, "removido com sucesso!")
+
+# listar_clientes(lista)
+
+if __name__ == '__main__':
+
+    cadastrar()
+
