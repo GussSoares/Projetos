@@ -1,4 +1,6 @@
-import cliente, empresa
+import cliente, empresa, sys
+# from interface import mainwindow
+from interface import mainwindow
 
 lista=[]
 
@@ -26,5 +28,10 @@ def remover_cliente(lista, nome):
 
 if __name__ == '__main__':
 
-    cadastrar()
-
+    # cadastrar()
+    app = mainwindow.QtWidgets.QApplication(sys.argv)
+    MainWindow = mainwindow.QtWidgets.QMainWindow()
+    ui = mainwindow.Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
