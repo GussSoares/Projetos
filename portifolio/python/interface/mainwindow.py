@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -100,7 +101,7 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Estado"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar"))
         self.label_image.setPixmap(
-            QtGui.QPixmap("C:\\Users\\Gustavo\\Desktop\\Workspace\\python\\images\\logo_128x128"))
+            QtGui.QPixmap(os.path.abspath("images/logo_128x128.png")))
         self.menuFile.setTitle(_translate("MainWindow", "Novo"))
         self.menuSalvar.setTitle(_translate("MainWindow", "Salvar"))
         self.menuSair.setTitle(_translate("MainWindow", "Sair"))
