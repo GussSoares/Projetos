@@ -1,4 +1,4 @@
-import cliente, empresa, sys
+import cliente, empresa, sys, functools
 # from interface import mainwindow
 from interface import mainwindow
 
@@ -26,12 +26,23 @@ def remover_cliente(lista, nome):
 
 # listar_clientes(lista)
 
+def get_codigo():
+    codigo = mainwindow.ui.lineEdit_2.text()
+    mainwindow.ui.listWidget.addItem(codigo)
+    print(codigo)
+    return codigo
+
+
+
 if __name__ == '__main__':
 
     # cadastrar()
     app = mainwindow.QtWidgets.QApplication(sys.argv)
-    MainWindow = mainwindow.QtWidgets.QMainWindow()
-    ui = mainwindow.Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    mainwindow.MainWindow = mainwindow.QtWidgets.QMainWindow()
+    mainwindow.ui = mainwindow.Ui_MainWindow()
+    mainwindow.ui.setupUi(mainwindow.MainWindow)
+    mainwindow.MainWindow.show()
+
+    mainwindow.ui.pushButton.clicked.connect(functools.partial(get_codigo))
+
     sys.exit(app.exec_())
