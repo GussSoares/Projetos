@@ -26,11 +26,13 @@ def remover_cliente(lista, nome):
 
 # listar_clientes(lista)
 
+
 def get_codigo():
-    codigo = mainwindow.ui.lineEdit_2.text()
-    mainwindow.ui.listWidget.addItem(codigo)
+    codigo = mainwindow.ui.lineEdit.text()
+    # mainwindow.ui.listWidget.addItem(codigo)
+    mainwindow.ui.tableWidget.insertRow(0,0,codigo)
     print(codigo)
-    return codigo
+    # return codigo
 
 
 
