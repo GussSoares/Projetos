@@ -213,6 +213,11 @@
       <height>192</height>
      </rect>
     </property>
+    <row>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>Cod</string>
@@ -248,6 +253,11 @@
       <string>Estado</string>
      </property>
     </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

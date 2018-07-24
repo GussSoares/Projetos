@@ -1,7 +1,7 @@
 import cliente, empresa, sys, functools
 # from interface import mainwindow
 from interface import mainwindow
-
+from PyQt5 import QtCore, QtGui, QtWidgets
 lista=[]
 
 def cadastrar():
@@ -30,7 +30,11 @@ def remover_cliente(lista, nome):
 def get_codigo():
     codigo = mainwindow.ui.lineEdit.text()
     # mainwindow.ui.listWidget.addItem(codigo)
-    mainwindow.ui.tableWidget.insertRow(0,0,codigo)
+    
+    item = QtWidgets.QTableWidgetItem()
+    mainwindow.ui.tableWidget.setItem(0, 0, item)
+    item.setText(codigo)
+    # mainwindow.ui.tableWidget.setItem(0,0,codigo)
     print(codigo)
     # return codigo
 
