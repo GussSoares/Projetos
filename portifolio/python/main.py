@@ -3,6 +3,7 @@ import cliente, empresa, sys, functools
 from interface import mainwindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 lista=[]
+countRow = 1
 
 def cadastrar():
     c = cliente.Cliente(None, None)
@@ -28,14 +29,33 @@ def remover_cliente(lista, nome):
 
 
 def get_codigo():
-    codigo = mainwindow.ui.lineEdit.text()
+    global countRow
+    mainwindow.ui.tableWidget.setRowCount(countRow)
+    codigo = mainwindow.ui.lineEdit_1.text()
+    nome = mainwindow.ui.lineEdit_2.text()
+    end = mainwindow.ui.lineEdit_3.text()
+    num = mainwindow.ui.lineEdit_4.text()
+    cid = mainwindow.ui.lineEdit_5.text()
+    bairro = mainwindow.ui.lineEdit_6.text()
+    estado = mainwindow.ui.lineEdit_7.text()
     # mainwindow.ui.listWidget.addItem(codigo)
-    
-    item = QtWidgets.QTableWidgetItem()
-    mainwindow.ui.tableWidget.setItem(0, 0, item)
-    item.setText(codigo)
+
+    lista.append(codigo)
+    lista.append(nome)
+    lista.append(end)
+    lista.append(num)
+    lista.append(cid)
+    lista.append(bairro)
+    lista.append(estado)
+    print(lista)
+    for i in range(len(lista)):
+        item = QtWidgets.QTableWidgetItem()
+        mainwindow.ui.tableWidget.setItem(countRow-1, i, item)
+        item.setText(lista[i])
     # mainwindow.ui.tableWidget.setItem(0,0,codigo)
     print(codigo)
+    lista.clear()
+    countRow += 1
     # return codigo
 
 
