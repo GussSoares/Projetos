@@ -1,0 +1,5 @@
+Código	Nome	End	Num	Cidade		Bairro	Estado
+00	gustavo	rua a	45	fortaleza	joquei	ceara	
+00	luiz	rua 2	45	sao luiz	centro	tocantins	
+05	joão	rua abc	47	amazonas	joar	maranhao	
+04	suely	rua 123	10	fortaleza	joquei	ceará	

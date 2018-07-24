@@ -1,3 +1,5 @@
+import os
+
 import cliente, empresa, sys, functools
 # from interface import mainwindow
 from interface import mainwindow
@@ -58,6 +60,14 @@ def get_codigo():
         item.setText(str(countRow-1))
     # mainwindow.ui.tableWidget.setItem(0,0,codigo)
     print(codigo)
+
+    path = os.path.abspath('Data/Resultado.txt')
+    with open(path, 'a') as file:
+        file.write("\n")
+        for i in range(len(lista)):
+            file.write(lista[i]+"\t")
+
+
     lista.clear()
     countRow += 1
     # return codigo
