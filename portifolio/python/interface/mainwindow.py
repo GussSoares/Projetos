@@ -72,7 +72,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setGeometry(QtCore.QRect(10, 230, 641, 192))
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(7)
-        # self.tableWidget.setRowCount(0)
+        # self.tableWidget.setRowCount(1)
+
+        # item = QtWidgets.QTableWidgetItem()
+        # self.tableWidget.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -129,6 +132,8 @@ class Ui_MainWindow(object):
         self.menuSair.setTitle(_translate("MainWindow", "Sair"))
         self.actionasd.setText(_translate("MainWindow", "asd"))
 
+        # item = self.tableWidget.verticalHeaderItem(0)
+        # item.setText(_translate("MainWindow", "0"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Cod"))
         item = self.tableWidget.horizontalHeaderItem(1)

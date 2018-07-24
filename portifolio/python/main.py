@@ -52,6 +52,10 @@ def get_codigo():
         item = QtWidgets.QTableWidgetItem()
         mainwindow.ui.tableWidget.setItem(countRow-1, i, item)
         item.setText(lista[i])
+
+        item = QtWidgets.QTableWidgetItem()
+        mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow-1, item)
+        item.setText(str(countRow-1))
     # mainwindow.ui.tableWidget.setItem(0,0,codigo)
     print(codigo)
     lista.clear()
