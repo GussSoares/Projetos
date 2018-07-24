@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\mainwindow_2.ui'
+# Form implementation generated from reading ui file 'mainwindow_2.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.2
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -95,16 +95,16 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
-        self.menuSalvar = QtWidgets.QMenu(self.menubar)
-        self.menuSalvar.setObjectName("menuSalvar")
-        self.menuSair = QtWidgets.QMenu(self.menubar)
-        self.menuSair.setObjectName("menuSair")
         MainWindow.setMenuBar(self.menubar)
         self.actionasd = QtWidgets.QAction(MainWindow)
         self.actionasd.setObjectName("actionasd")
+        self.actionSalvar = QtWidgets.QAction(MainWindow)
+        self.actionSalvar.setObjectName("actionSalvar")
+        self.actionSair = QtWidgets.QAction(MainWindow)
+        self.actionSair.setObjectName("actionSair")
+        self.menuFile.addAction(self.actionSalvar)
+        self.menuFile.addAction(self.actionSair)
         self.menubar.addAction(self.menuFile.menuAction())
-        self.menubar.addAction(self.menuSalvar.menuAction())
-        self.menubar.addAction(self.menuSair.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -141,9 +141,9 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.menuFile.setTitle(_translate("MainWindow", "Novo"))
-        self.menuSalvar.setTitle(_translate("MainWindow", "Salvar"))
-        self.menuSair.setTitle(_translate("MainWindow", "Sair"))
         self.actionasd.setText(_translate("MainWindow", "asd"))
+        self.actionSalvar.setText(_translate("MainWindow", "Salvar"))
+        self.actionSair.setText(_translate("MainWindow", "Sair"))
 
 
 if __name__ == "__main__":

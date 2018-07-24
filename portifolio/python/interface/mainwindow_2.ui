@@ -274,24 +274,24 @@
     <property name="title">
      <string>Novo</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuSalvar">
-    <property name="title">
-     <string>Salvar</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuSair">
-    <property name="title">
-     <string>Sair</string>
-    </property>
+    <addaction name="actionSalvar"/>
+    <addaction name="actionSair"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuSalvar"/>
-   <addaction name="menuSair"/>
   </widget>
   <action name="actionasd">
    <property name="text">
     <string>asd</string>
+   </property>
+  </action>
+  <action name="actionSalvar">
+   <property name="text">
+    <string>Salvar</string>
+   </property>
+  </action>
+  <action name="actionSair">
+   <property name="text">
+    <string>Sair</string>
    </property>
   </action>
  </widget>

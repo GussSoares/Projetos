@@ -1,4 +1,4 @@
-import os
+import os, glob
 
 import cliente, empresa, sys, functools
 # from interface import mainwindow
@@ -30,7 +30,7 @@ def remover_cliente(lista, nome):
 # listar_clientes(lista)
 
 
-def get_codigo():
+def add_client():
     global countRow
     mainwindow.ui.tableWidget.setRowCount(countRow)
     codigo = mainwindow.ui.lineEdit_1.text()
@@ -60,18 +60,38 @@ def get_codigo():
         item.setText(str(countRow-1))
     # mainwindow.ui.tableWidget.setItem(0,0,codigo)
     print(codigo)
-
-    path = os.path.abspath('Data/Resultado.txt')
-    with open(path, 'a') as file:
+    path = os.path.abspath('Data')
+    files = glob.glob(path + '/*.txt')
+    with open(files[len(files)-1], 'a') as file:
         file.write("\n")
         for i in range(len(lista)):
             file.write(lista[i]+"\t")
-
 
     lista.clear()
     countRow += 1
     # return codigo
 
+def check_filename():
+    global i
+    path = os.path.abspath('Data')
+    if os.path.isfile(os.path.abspath('Data/Resultado.txt')) is True:
+        print("if")
+
+        files = glob.glob(path+'/*.txt')
+        print(files)
+        with open(files[len(files)-1], 'r') as file:
+
+            arq = file.read()
+            i = arq.split(" ")[1][0]
+            i = int(i)+1
+        with open(path+"/Resultado_"+str(i)+".txt",'w+') as file:
+            file.write("Version "+str(i)+"\nCódigo	Nome	End	Num	Cidade		Bairro	Estado")
+
+    else:
+
+        path = os.path.abspath('Data/Resultado.txt')
+        with open(path, 'w+') as file:
+            file.write("Version 1\nCódigo	Nome	End	Num	Cidade		Bairro	Estado")
 
 
 if __name__ == '__main__':
@@ -83,6 +103,9 @@ if __name__ == '__main__':
     mainwindow.ui.setupUi(mainwindow.MainWindow)
     mainwindow.MainWindow.show()
 
-    mainwindow.ui.pushButton.clicked.connect(functools.partial(get_codigo))
+    check_filename()
+
+    mainwindow.ui.pushButton.clicked.connect(functools.partial(add_client))
+    mainwindow.ui.actionSair.triggered.connect(mainwindow.MainWindow.close)
 
     sys.exit(app.exec_())
