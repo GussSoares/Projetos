@@ -1,2 +1,0 @@
-Version 4
-Código	Nome	End	Num	Cidade		Bairro	Estado

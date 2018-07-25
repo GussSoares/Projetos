@@ -1,3 +1,0 @@
-Version 7
-Código	Nome	End	Num	Cidade		Bairro	Estado
-		asd	asdas	asd	asd	asd	

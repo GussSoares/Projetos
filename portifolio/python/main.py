@@ -69,12 +69,13 @@ def add_client():
     else:
         print("entrou")
         # app = warning.QtWidgets.QApplication(sys.argv)
-        warning.Dialog = QtWidgets.QDialog()
+        warning.Dialog = warning.QtWidgets.QDialog()
         warning.ui = warning.Ui_Dialog()
         warning.ui.setupUi(warning.Dialog, "Espaços vazios!")
         warning.Dialog.show()
-        # sys.exit(app.exec_())
+        # os.system("pause")
         warning.ui.pushButtom.clicked.connect(functools.partial(warning.Dialog.close))
+        # sys.exit(app.exec_())
 
 def check_filename():
     global i
@@ -98,6 +99,28 @@ def check_filename():
         with open(path, 'w+') as file:
             file.write("Version 1\nCódigo	Nome	End	Num	Cidade		Bairro	Estado")
 
+def auto_add():
+    global countRow
+    total_list=[]
+    path = os.path.abspath('Data')
+    files = glob.glob(path + '/*.txt')
+    with open(files[len(files) - 1], 'r') as file:
+        lines=file.readlines()
+        for i in range(2):
+            lines.pop(0)
+        # print(lines)
+        for element in lines:
+            total_list.append(element.split("\t"))
+    for i in range(len(total_list)):
+        for j in range(7):
+            print(total_list[i][j])
+        item = QtWidgets.QTableWidgetItem()
+        mainwindow.ui.tableWidget.setItem(countRow - 1, i, item)
+        item.setText(str(total_list[i][j]))
+
+        item = QtWidgets.QTableWidgetItem()
+        mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow - 1, item)
+        item.setText(str(countRow - 1))
 
 if __name__ == '__main__':
 
@@ -107,8 +130,9 @@ if __name__ == '__main__':
     mainwindow.ui.setupUi(mainwindow.MainWindow)
     mainwindow.MainWindow.show()
 
-    check_filename()
-
+    auto_add()
+    # # check_filename()
+    #
     mainwindow.ui.pushButton.clicked.connect(functools.partial(add_client))
     mainwindow.ui.actionSair.triggered.connect(mainwindow.MainWindow.close)
 
