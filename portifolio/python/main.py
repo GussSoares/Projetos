@@ -2,7 +2,7 @@ import os, glob
 
 import cliente, empresa, sys, functools
 # from interface import mainwindow
-from interface import mainwindow
+from interface import mainwindow, warning
 from PyQt5 import QtCore, QtGui, QtWidgets
 lista=[]
 countRow = 1
@@ -27,8 +27,6 @@ def remover_cliente(lista, nome):
             lista.remove(i)
     print(i.nome, "removido com sucesso!")
 
-# listar_clientes(lista)
-
 
 def add_client():
     global countRow
@@ -40,36 +38,43 @@ def add_client():
     cid = mainwindow.ui.lineEdit_5.text()
     bairro = mainwindow.ui.lineEdit_6.text()
     estado = mainwindow.ui.lineEdit_7.text()
-    # mainwindow.ui.listWidget.addItem(codigo)
 
-    lista.append(codigo)
-    lista.append(nome)
-    lista.append(end)
-    lista.append(num)
-    lista.append(cid)
-    lista.append(bairro)
-    lista.append(estado)
-    print(lista)
-    for i in range(len(lista)):
-        item = QtWidgets.QTableWidgetItem()
-        mainwindow.ui.tableWidget.setItem(countRow-1, i, item)
-        item.setText(lista[i])
-
-        item = QtWidgets.QTableWidgetItem()
-        mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow-1, item)
-        item.setText(str(countRow-1))
-    # mainwindow.ui.tableWidget.setItem(0,0,codigo)
-    print(codigo)
-    path = os.path.abspath('Data')
-    files = glob.glob(path + '/*.txt')
-    with open(files[len(files)-1], 'a') as file:
-        file.write("\n")
+    if (nome != "") and (codigo != ""):
+        lista.append(codigo)
+        lista.append(nome)
+        lista.append(end)
+        lista.append(num)
+        lista.append(cid)
+        lista.append(bairro)
+        lista.append(estado)
+        print(lista)
         for i in range(len(lista)):
-            file.write(lista[i]+"\t")
+            item = QtWidgets.QTableWidgetItem()
+            mainwindow.ui.tableWidget.setItem(countRow-1, i, item)
+            item.setText(lista[i])
 
-    lista.clear()
-    countRow += 1
-    # return codigo
+            item = QtWidgets.QTableWidgetItem()
+            mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow-1, item)
+            item.setText(str(countRow-1))
+        print(codigo)
+        path = os.path.abspath('Data')
+        files = glob.glob(path + '/*.txt')
+        with open(files[len(files)-1], 'a') as file:
+            file.write("\n")
+            for i in range(len(lista)):
+                file.write(lista[i]+"\t")
+
+        lista.clear()
+        countRow += 1
+    else:
+        print("entrou")
+        # app = warning.QtWidgets.QApplication(sys.argv)
+        warning.Dialog = QtWidgets.QDialog()
+        warning.ui = warning.Ui_Dialog()
+        warning.ui.setupUi(warning.Dialog, "Espaços vazios!")
+        warning.Dialog.show()
+        # sys.exit(app.exec_())
+        warning.ui.pushButtom.clicked.connect(functools.partial(warning.Dialog.close))
 
 def check_filename():
     global i
@@ -96,7 +101,6 @@ def check_filename():
 
 if __name__ == '__main__':
 
-    # cadastrar()
     app = mainwindow.QtWidgets.QApplication(sys.argv)
     mainwindow.MainWindow = mainwindow.QtWidgets.QMainWindow()
     mainwindow.ui = mainwindow.Ui_MainWindow()
