@@ -7,27 +7,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 lista=[]
 countRow = 1
 
-def cadastrar():
-    c = cliente.Cliente(None, None)
-    c.nome = input("Digite seu nome: ")
-    c.telefone = input("Digite seu telefone: ")
-    if c.nome != None:
-        print("Cliente cadastrado com sucesso!")
-        lista.append(c)
-        return c
-
-def listar_clientes(lista):
-    for i in lista:
-        print(i.nome+", "+i.telefone)
-
-
-def remover_cliente(lista, nome):
-    for i in lista:
-        if i.nome == nome:
-            lista.remove(i)
-    print(i.nome, "removido com sucesso!")
-
-
 def add_client():
     global countRow
     mainwindow.ui.tableWidget.setRowCount(countRow)
@@ -111,16 +90,17 @@ def auto_add():
         # print(lines)
         for element in lines:
             total_list.append(element.split("\t"))
-    for i in range(len(total_list)):
-        for j in range(7):
-            print(total_list[i][j])
-        item = QtWidgets.QTableWidgetItem()
-        mainwindow.ui.tableWidget.setItem(countRow - 1, i, item)
-        item.setText(str(total_list[i][j]))
+    for j in range(len(total_list)):
+        for k in range(7):
+            print(total_list[j][k])
+            item = QtWidgets.QTableWidgetItem()
+            mainwindow.ui.tableWidget.setItem(countRow-1, k, item)
+            item.setText(total_list[j][k])
 
-        item = QtWidgets.QTableWidgetItem()
-        mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow - 1, item)
-        item.setText(str(countRow - 1))
+            item = QtWidgets.QTableWidgetItem()
+            mainwindow.ui.tableWidget.setVerticalHeaderItem(countRow - 1, item)
+            item.setText(str(countRow - 1))
+    countRow += 1
 
 if __name__ == '__main__':
 
@@ -130,10 +110,11 @@ if __name__ == '__main__':
     mainwindow.ui.setupUi(mainwindow.MainWindow)
     mainwindow.MainWindow.show()
 
-    auto_add()
+    # auto_add()
     # # check_filename()
     #
     mainwindow.ui.pushButton.clicked.connect(functools.partial(add_client))
     mainwindow.ui.actionSair.triggered.connect(mainwindow.MainWindow.close)
+    mainwindow.ui.pushButton_2.clicked.connect(functools.partial(auto_add))
 
     sys.exit(app.exec_())

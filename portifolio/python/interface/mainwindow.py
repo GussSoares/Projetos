@@ -65,6 +65,9 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(550, 200, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(30, 200, 75, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
         self.label_image = QtWidgets.QLabel(self.centralwidget)
         self.label_image.setGeometry(QtCore.QRect(470, 20, 171, 151))
         self.label_image.setObjectName("label_image")
@@ -127,6 +130,7 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "Bairro"))
         self.label_7.setText(_translate("MainWindow", "Estado"))
         self.pushButton.setText(_translate("MainWindow", "Cadastrar"))
+        self.pushButton_2.setText(_translate("MainWindow", "Atualizar"))
         self.label_image.setPixmap(
             QtGui.QPixmap(os.path.abspath("images/logo_128x128.png")))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
@@ -150,6 +154,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Bairro"))
         item = self.tableWidget.horizontalHeaderItem(6)
         item.setText(_translate("MainWindow", "Estado"))
+
 
 
 if __name__ == "__main__":

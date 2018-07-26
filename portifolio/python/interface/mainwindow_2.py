@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainwindow_2.ui'
+# Form implementation generated from reading ui file '.\mainwindow_2.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.11.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -86,6 +86,9 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(6, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 0, item)
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(30, 200, 75, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -140,6 +143,7 @@ class Ui_MainWindow(object):
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
         self.tableWidget.setSortingEnabled(__sortingEnabled)
+        self.pushButton_2.setText(_translate("MainWindow", "Atualizar"))
         self.menuFile.setTitle(_translate("MainWindow", "Novo"))
         self.actionasd.setText(_translate("MainWindow", "asd"))
         self.actionSalvar.setText(_translate("MainWindow", "Salvar"))
